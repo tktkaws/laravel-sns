@@ -1,31 +1,34 @@
 <template>
   <div>
     <button type="button" class="btn m-0 p-1 shadow-none">
-      <i
-        class="fas fa-heart mr-1"
-        #----------ここから追加----------
-        :class="{'red-text':this.isLikedBy}"
-        #----------ここまで追加----------
-      />
+      <i class="fas fa-heart mr-1" :class="{'red-text':this.isLikedBy}" />
     </button>
-    10
+    {{ countLikes }}
+    <!-- この行を変更 -->
   </div>
 </template>
 
 <script>
-//==========ここから追加==========
 export default {
   props: {
     initialIsLikedBy: {
       type: Boolean,
       default: false
+    },
+    //==========ここから追加==========
+    initialCountLikes: {
+      type: Number,
+      default: 0
     }
+    //==========ここまで追加==========
   },
   data() {
     return {
-      isLikedBy: this.initialIsLikedBy
+      isLikedBy: this.initialIsLikedBy,
+      //==========ここから追加==========
+      countLikes: this.initialCountLikes
+      //==========ここまで追加==========
     };
   }
 };
-//==========ここまで追加==========
 </script>
